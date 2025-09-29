@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Validador de DNI</title>
+  <link rel="stylesheet" href="./CSS/styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Validador de DNI (Número + Letra)</h1>
+    <p>Introduce el número de DNI (0–99.999.999) y la letra que crees que corresponde.</p>
+
+    <form id="dniForm" novalidate>
+      <div>
+        <label for="dniNumber">Número de DNI</label>
+        <input id="dniNumber" name="dniNumber" type="number" inputmode="numeric" placeholder="Ej: 12345678" required />
+      </div>
+
+      <div>
+        <label for="dniLetter">Letra</label>
+        <input id="dniLetter" name="dniLetter" type="text" maxlength="1" placeholder="T" required />
+      </div>
+
+      <div>
+        <button type="submit">Validar</button>
+        <button type="button" id="clearBtn">Limpiar</button>
+      </div>
+
+      <div id="message" aria-live="polite"></div>
+    </form>
+
+    <div>
+      Array de letras usado (posición = resto mod 23):
+    </div>
+    <div>
+      ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E','T']
+    </div>
+
+    <p>Nota: la primera comprobación (rango válido) se realiza en una sola instrucción <code>if</code> y, si falla, la función termina sin mostrar más mensajes.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
